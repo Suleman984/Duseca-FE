@@ -1,7 +1,11 @@
 .App {
   text-align: center;
 }
-
+.header {
+  position: relative; /* or 'fixed' if you want it to stay at the top during scroll */
+  z-index: 1000; /* Set a high z-index to keep it on top */
+  width: 100%; /* Ensure it spans the full width */
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
