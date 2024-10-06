@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+******\*******Frontend for User Management System**\*\***
+This is the frontend part of a User Management System, built with React and Material UI, featuring different accessibility levels for Admins, Managers, and Users. The system includes authentication and role-based access control, allowing users to perform specific tasks based on their assigned roles.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Table of Contents
+Features
+Technology Stack
+Installation
+Directory Structure
+Functionality
+Admin Functionality
+Manager Functionality
+User Functionality
+Routing
+State Management
 
-## Available Scripts
+\***\*\*\*\*\***Features\***\*\*\*\*\***
 
-In the project directory, you can run:
+Login Authentication: Users can log in using their email and password, which are authenticated via the backend.
+Role-Based Dashboard: Once authenticated, users are directed to the dashboard, which provides different features based on their role (Admin, Manager, User).
+Material UI: Used for styling and creating responsive, modern UI components.
+Context API: Implemented for state management across components and pages.
+React Router V6: Utilized for routing and navigation.
 
-### `npm start`
+Technology Stack
+React.js: For building the user interface.
+Material UI: For UI components and design.
+Context API: For state management.
+React Router V6: For handling routing and navigation between different pages.
+Axios: For making API requests (authentication and data fetching).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+****\*\*****Installation****\*\*\*\*****
+Clone the repository:
+git clone https://github.com/Suleman984/Duseca-FE.git
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**\*\*\***Install the required dependencies
+npm install
 
-### `npm test`
+\***\*\*\*\*\***Create an .env file in the root directory and add your backend API UR
+REACT_APP_API_BASE_URL= PRIVATEKEY@JWT
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+\***\*\*\*\*\*\*\***Start Development Server
+npm start
 
-### `npm run build`
+\***\*\*\*\*\*\*\***Directory Structure
+src/
+│
+├── Auth/
+│ └── Login.js # Login component
+│
+├── Components/ # Reusable components
+│ ├── Header.js # Header component
+│ ├── Sidebar.js # Sidebar navigation
+│ └── TaskComponent.js # Task display component
+│
+├── Pages/
+│ ├── AddEmployee.js # Page for adding a new employee (Admin)
+│ ├── Auth.js # Authentication page
+│ ├── CreateTask.js # Task creation page (User)
+│ ├── Dashboard.js # Dashboard with role-based functionality
+│ └── TaskDetails.js # Task details page
+│
+├── Context/ # Context API for state management
+│ └── AuthContext.js # Authentication context and provider
+│
+└── App.js # Main application entry point and routing
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+****\*\*\*\*****Functionality******\*\*\*\*******
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Admin Functionality
+Create Employee: Admin can add new employees to the system.
+View All Users: Admin can view a list of all registered users.
+View All Tasks: Admin can view tasks assigned to all users.
+Delete User Task: Admin has the ability to delete tasks created by any user.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Manager Functionality
+View Assigned Users: Manager can view all users assigned under them.
+View Tasks: Manager can see tasks created by assigned users.
+Delete Task: Manager can delete tasks created by their assigned users.
 
-### `npm run eject`
+User Functionality
+Create Task: User can create their own tasks.
+View Tasks: User can view all tasks created by them.
+Delete Task: User can delete their own tasks.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+********\*\*\*\*********Routing************\*************
+The project uses React Router V6 to handle navigation. Below are the routes defined in the project:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Route Component Description
+/login Login User login page
+/dashboard Dashboard Role-based dashboard after login
+/add-employee AddEmployee Add a new employee (Admin only)
+/create-task CreateTask Create a task (User only)
+/task-details/:id TaskDetails View detailed task information
+State Management
+State management across the application is handled using Context API. The AuthContext provides authentication status and role-based access control to the rest of the application.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+AuthContext.js: Provides and manages the authentication state and user role across the app. It stores the authentication token and user role, which are used to display the appropriate dashboard and features for each user.
